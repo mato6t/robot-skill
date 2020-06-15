@@ -6,7 +6,7 @@ class Robot(MycroftSkill):
         MycroftSkill.__init__(self)
 
     @intent_file_handler('robotl.intent')
-    def handle_robot(self, message):
+    def handle_robotl(self, message):
         self.speak_dialog('robotl')
         robot=abb.YuMi("192.168.0.100")
         robot.Connect()
@@ -18,7 +18,7 @@ class Robot(MycroftSkill):
         robot.LeftArm.MoveTo(position)
         robot.MoveHome()
     @intent_file_handler('robotr.intent')
-    def handle_robot(self, message):
+    def handle_robotr(self, message):
         self.speak_dialog('robotr')
         robot=abb.YuMi("192.168.0.100")
         robot.Connect()
