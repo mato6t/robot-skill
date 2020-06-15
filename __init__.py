@@ -1,11 +1,11 @@
-from mycroft import MycroftSkill, intent_file_handler
+from mycroft import MycroftSkill, intent_handler
 import abb
 
 class Robot(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
 
-    @intent_file_handler('robotl.intent')
+    @intent_handler('robotl.intent')
     def handle_robotl(self, message):
         self.speak_dialog('robotl')
         robot=abb.YuMi("192.168.0.100")
@@ -17,7 +17,8 @@ class Robot(MycroftSkill):
         position.speed = abb.Speed(100)
         robot.LeftArm.MoveTo(position)
         robot.MoveHome()
-    @intent_file_handler('robotr.intent')
+
+    @intent_handler('robotr.intent')
     def handle_robotr(self, message):
         self.speak_dialog('robotr')
         robot=abb.YuMi("192.168.0.100")
@@ -32,5 +33,4 @@ class Robot(MycroftSkill):
 
 def create_skill():
     return Robot()
-
 
